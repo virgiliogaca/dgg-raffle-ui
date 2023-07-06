@@ -1,22 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './input.css';
+import {DonoComponent} from './components/dono-component'
+import { DonoFrame } from './components/dono-frame';
+import { DonoForm } from './components/dono-form';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="h-screen bg-gradient-to-b from-slate-900 to-slate-500 flex-row">
+        <div>
+          <DonoComponent/>
+        </div>
+        <div>
+          <DonoFrame/>
+        </div>
+        <div>
+          <DonoForm/>
+        </div>
       </header>
     </div>
   );
