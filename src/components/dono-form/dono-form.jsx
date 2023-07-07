@@ -16,7 +16,7 @@ const DonoForm = () => {
     console.log({winnerChatter});
     return (
         <>
-            <div className='flex justify-center'>
+            <div className='flex justify-center mt-10'>
                 <button className={`bg-gradient-to-r from-blue-300 to-pink-300 hover:bg-blue-700 text-amber-900 text-3xl font-light py-2 px-4 rounded`}
                 onClick={() => startTheRaffle()}>
                     BEGIN   THE   RAFFLE

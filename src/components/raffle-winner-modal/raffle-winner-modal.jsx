@@ -25,16 +25,16 @@ const RaffleWinnerModal = (
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg font-bold leading-relaxed">
-                    Winner chatter:
+                    Congratulations to:
                   </p>
                   <p className="my-4 text-slate-500 text-lg font-light leading-relaxed">
-                    {winnerChatter.chatterName}
+                    {winnerChatter?.chatterName}
                   </p>
                   <p className="my-4 text-slate-500 text-lg font-bold leading-relaxed">
                     Movie to watch:
                   </p>
                   <p className="my-4 text-slate-500 text-lg font-light leading-relaxed">
-                    {winnerChatter.chatterMovie}
+                    {winnerChatter?.chatterMovie}
                   </p>
                   <p className="my-4 text-slate-500 text-lg font-bold leading-relaxed flex justify-center">
                     YEE Wins

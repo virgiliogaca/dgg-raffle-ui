@@ -1,15 +1,13 @@
 import dgglGif from '../../assets/dggl-destiny-gif.gif'
-import axios from "axios"
-import { useEffect, useState } from 'react';
+import { useCharityMoneyRaised } from '../../hooks/useCharityMoneyRaised';
+import { useEffect } from 'react';
 
 const DonoComponent = () => {
-    let [moneyDonated, setMoneyDonated] = useState(0)
-    
-    useEffect(() => {
-        axios
-            .get(`https://dggraffledev.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
-            .then(response => setMoneyDonated(response.data.data))
-    }, []);
+    let [response, fetchData] = useCharityMoneyRaised();
+
+    useEffect(()=> {
+        fetchData();
+    }, [response]);
 
     return (
         <>
@@ -19,13 +17,13 @@ const DonoComponent = () => {
                     DGG DONO GOAL
                 </text>
                 <text className="text-[50px] font-sans text-red-600 mt-20 animate-pulse">
-                    ${((+moneyDonated)).toFixed(2)}
+                    ${((+response?.data)).toFixed(2)}
                 </text>
                 <text className="text-[50px] font-sans text-white mt-20">
                     /
                 </text>
                 <text className="text-[50px] font-sans text-green-600 mt-20 animate-bounce">
-                    ${((++moneyDonated)).toFixed(2)}
+                    ${((+response?.data + 1)).toFixed(2)}
                 </text>
             </div>
         </>

@@ -10,7 +10,7 @@ function App() {
         <div>
           <DonoComponent/>
         </div>
-        <div>
+        <div className='flex flex-col'>
           <DonoFrame/>
         </div>
         <div>
