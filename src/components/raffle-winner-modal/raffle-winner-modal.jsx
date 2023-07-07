@@ -36,6 +36,12 @@ const RaffleWinnerModal = (
                   <p className="my-4 text-slate-500 text-lg font-light leading-relaxed">
                     {winnerChatter?.chatterMovie}
                   </p>
+                  <p className="my-4 text-slate-500 text-lg font-bold leading-relaxed">
+                    Money donated:
+                  </p>
+                  <p className="my-4 text-slate-500 text-lg font-light leading-relaxed">
+                    ${((isNaN(winnerChatter?.moneyDonated) ? 0 : + winnerChatter?.moneyDonated)).toFixed(2)}
+                  </p>
                   <p className="my-4 text-slate-500 text-lg font-bold leading-relaxed flex justify-center">
                     YEE Wins
                   </p>
