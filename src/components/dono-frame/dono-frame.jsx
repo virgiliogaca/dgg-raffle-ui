@@ -1,5 +1,10 @@
 import axios from "axios"
 import { useState } from "react";
+import { useQuery } from '@tanstack/react-query';
+
+const fetchDonos = () => {
+    return axios.get(`https://dggraffledev.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
+};
 
 const DonoFrame = () => {
 
@@ -13,6 +18,13 @@ const DonoFrame = () => {
         setDono('');
     }
 
+    const { refetch } = useQuery(
+        ['fetchDono'],
+        fetchDonos,{
+            enabled: false
+        }
+    )
+
     const addRaffleEntry = () =>{
         console.log({chatterMovie, chatterName, dono})
         axios
@@ -22,6 +34,9 @@ const DonoFrame = () => {
                 "moneyDonated": dono
              })
              .then(resetBoxes())
+        
+             
+        setTimeout(() => {  refetch() }, 500);
     }
 
     const handleChatterName = (event) => {

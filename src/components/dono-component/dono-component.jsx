@@ -1,16 +1,21 @@
+import { useQuery } from '@tanstack/react-query';
 import dgglGif from '../../assets/dggl-destiny-gif.gif'
-import { useCharityMoneyRaised } from '../../hooks/useCharityMoneyRaised';
-import { useEffect } from 'react';
+import axios from "axios"
+
+const fetchDonos = () => {
+    return axios.get(`https://dggraffledev.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
+};
 
 const DonoComponent = () => {
-    // eslint-disable-next-line
-    let [response, fetchData] = useCharityMoneyRaised();
 
-    // eslint-disable-next-line
-    useEffect(()=> {
-        // eslint-disable-next-line
-        fetchData();
-    }, [response, fetchData]);
+    const { isLoading, data, isError, error, isFetching} = useQuery(
+        ['fetchDono'],
+        fetchDonos,{
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        }
+    )
+    console.log({data})
 
     return (
         <>
@@ -20,13 +25,13 @@ const DonoComponent = () => {
                     DGG DONO GOAL
                 </text>
                 <text className="text-[50px] font-sans text-red-600 mt-20 animate-pulse">
-                    ${((isNaN(response?.data) ? 0 : + response?.data)).toFixed(2)}
+                    ${((isNaN(data?.data?.data) ? 0 : + data?.data?.data)).toFixed(2)}
                 </text>
                 <text className="text-[50px] font-sans text-white mt-20">
                     /
                 </text>
                 <text className="text-[50px] font-sans text-green-600 mt-20 animate-bounce">
-                    ${((isNaN(response?.data) ? 0 : + response?.data + 1)).toFixed(2)}
+                    ${((isNaN(data?.data?.data) ? 0 : + data?.data?.data + 1)).toFixed(2)}
                 </text>
             </div>
         </>
