@@ -3,11 +3,14 @@ import { useCharityMoneyRaised } from '../../hooks/useCharityMoneyRaised';
 import { useEffect } from 'react';
 
 const DonoComponent = () => {
+    // eslint-disable-next-line
     let [response, fetchData] = useCharityMoneyRaised();
 
+    // eslint-disable-next-line
     useEffect(()=> {
+        // eslint-disable-next-line
         fetchData();
-    }, [response]);
+    }, [response, fetchData]);
 
     return (
         <>
