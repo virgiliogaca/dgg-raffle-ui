@@ -28,7 +28,7 @@ const DonoFrame = () => {
     const addRaffleEntry = () =>{
         console.log({chatterMovie, chatterName, dono})
         axios
-             .post(`https://dggraffledev.azurewebsites.net/api/Raffle/RaffleEntry`, {
+             .post(`https://dgg-raffle-api.azurewebsites.net/api/Raffle/RaffleEntry`, {
                 "chatterName": chatterName,
                 "movieName": chatterMovie,
                 "moneyDonated": dono
