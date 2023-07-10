@@ -80,11 +80,11 @@ const DonoFrame = () => {
                     </button>
                 </div>
                 <iframe src=" https://www.againstmalaria.com/destiny#MainContent_UcFundraiserSponsors1_grdDonors" id='dono' title="dono drive" className="w-[1000px] h-[500px]"></iframe>   
-                <div className="flex flex-row ">
+                <div className="flex flex-col ">
                     <text className="ml-5 text-[40px] font-sans text-white mt-20">
                         Current pool:
                     </text>
-                    <text className="ml-5 text-[40px] font-sans text-green-600 mt-20 animate-pulse">
+                    <text className="flex ml-5 text-[40px] font-sans text-green-600 justify-center animate-pulse">
                         ${((isNaN(data?.data?.data) ? 0 : + data?.data?.data + 1)).toFixed(2)}
                     </text>
                 </div>         
