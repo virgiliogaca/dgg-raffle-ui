@@ -8,7 +8,7 @@ const fetchDonos = () => {
 
 const DonoComponent = () => {
 
-    const { data} = useQuery(
+    const { data } = useQuery(
         ['fetchDono'],
         fetchDonos,{
             refetchOnMount: true,

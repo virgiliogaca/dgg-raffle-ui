@@ -6,6 +6,11 @@ const fetchDonos = () => {
     return axios.get(`https://dggraffledev.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
 };
 
+const fetchPool = () => {
+    return axios.get(`https://dgg-raffle-api.azurewebsites.net/api/Raffle/CharityMoneyPool`)
+};
+
+
 const DonoFrame = () => {
 
     let [chatterName, setChatterName] = useState('');
@@ -25,6 +30,15 @@ const DonoFrame = () => {
         }
     )
 
+    const { data, refetch: refetchPool } = useQuery(
+        ['fetchPool'],
+        fetchPool,{
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        }
+    )
+    console.log({data})
+
     const addRaffleEntry = () =>{
         console.log({chatterMovie, chatterName, dono})
         axios
@@ -36,7 +50,8 @@ const DonoFrame = () => {
              .then(resetBoxes())
         
              
-        setTimeout(() => {  refetch() }, 500);
+        setTimeout(() => {  refetch() }, 1000);
+        setTimeout(() => {  refetchPool() }, 1000);
     }
 
     const handleChatterName = (event) => {
@@ -64,7 +79,15 @@ const DonoFrame = () => {
                             Add raffle entry
                     </button>
                 </div>
-                <iframe src=" https://www.againstmalaria.com/destiny#MainContent_UcFundraiserSponsors1_grdDonors" id='dono' title="dono drive" className="w-[1000px] h-[500px]"></iframe>            
+                <iframe src=" https://www.againstmalaria.com/destiny#MainContent_UcFundraiserSponsors1_grdDonors" id='dono' title="dono drive" className="w-[1000px] h-[500px]"></iframe>   
+                <div className="flex flex-row ">
+                    <text className="ml-5 text-[40px] font-sans text-white mt-20">
+                        Current pool:
+                    </text>
+                    <text className="ml-5 text-[40px] font-sans text-green-600 mt-20 animate-pulse">
+                        ${((isNaN(data?.data?.data) ? 0 : + data?.data?.data + 1)).toFixed(2)}
+                    </text>
+                </div>         
             </div>
         </>
     )
