@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useQuery } from '@tanstack/react-query';
 
 const fetchDonos = () => {
-    return axios.get(`https://dggraffledev.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
+    return axios.get(`https://dgg-raffle-api-2.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
 };
 
 const fetchPool = () => {
-    return axios.get(`https://dgg-raffle-api.azurewebsites.net/api/Raffle/CharityMoneyPool`)
+    return axios.get(`https://dgg-raffle-api-2.azurewebsites.net/api/Raffle/CharityMoneyPool`)
 };
 
 
@@ -42,7 +42,7 @@ const DonoFrame = () => {
     const addRaffleEntry = () =>{
         console.log({chatterMovie, chatterName, dono})
         axios
-             .post(`https://dgg-raffle-api.azurewebsites.net/api/Raffle/RaffleEntry`, {
+             .post(`https://dgg-raffle-api-2.azurewebsites.net/api/Raffle/RaffleEntry`, {
                 "chatterName": chatterName,
                 "movieName": chatterMovie,
                 "moneyDonated": dono
@@ -50,8 +50,8 @@ const DonoFrame = () => {
              .then(resetBoxes())
         
              
-        setTimeout(() => {  refetch() }, 1000);
-        setTimeout(() => {  refetchPool() }, 1000);
+        setTimeout(() => {  refetch() }, 3000);
+        setTimeout(() => {  refetchPool() }, 3000);
     }
 
     const handleChatterName = (event) => {

@@ -3,7 +3,7 @@ import dgglGif from '../../assets/dggl-destiny-gif.gif'
 import axios from "axios"
 
 const fetchDonos = () => {
-    return axios.get(`https://dgg-raffle-api.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
+    return axios.get(`https://dgg-raffle-api-2.azurewebsites.net/api/Raffle/CharityMoneyRaised`)
 };
 
 const DonoComponent = () => {

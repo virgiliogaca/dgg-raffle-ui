@@ -9,7 +9,7 @@ const DonoForm = () => {
     const startTheRaffle = () =>{
         setShowModal(true);
         axios
-             .get(`https://dgg-raffle-api.azurewebsites.net/api/Raffle/RaffleWinner`)
+             .get(`https://dgg-raffle-api-2.azurewebsites.net/api/Raffle/RaffleWinner`)
              .then(response => setWinnerChatter(response.data.data))
     }
 
